@@ -15,6 +15,6 @@ const Level = db.define('Level', {
     }
 })
 
-Level.sync()
+//Level.sync()
 
 module.exports = Level
