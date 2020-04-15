@@ -14,7 +14,7 @@ const Request = db.define('Request', {
         allowNull: false
     },
     requested_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     pupil_id: {
@@ -22,7 +22,7 @@ const Request = db.define('Request', {
         allowNull: false
     },
     school_subject_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     state: {
@@ -39,6 +39,6 @@ const Request = db.define('Request', {
     }
 })
 
-Request.sync()
+//Request.sync()
 
 module.exports = Request

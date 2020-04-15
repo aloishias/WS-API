@@ -19,46 +19,46 @@ const User = db.define('User', {
     },
     email: {
         type: Sequelize.STRING,
-        allowNull: null
+        allowNull: true
     },
     phoneNumber: {
         type: Sequelize.STRING,
-        allowNull: null
+        allowNull: true
     },
     login: {
         type: Sequelize.STRING,
-        allowNull: null
+        allowNull: false
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: null
+        allowNull: false
     },
     parent_id: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     level_pupil: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     enterprise_id: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     level_student: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     schoolName: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     review: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     }
 })
 
-User.sync()
+//User.sync()
 
 module.exports = User
