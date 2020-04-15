@@ -7,6 +7,7 @@ const cors = require('cors')
 
 const userRoutes = require('./src/routes/User.js')
 const enterpriseRoutes = require('./src/routes/Enterprise.js')
+const levelRoutes = require('./src/routes/Level.js')
 
 
 app.use(cors())
@@ -21,6 +22,7 @@ app.use(
 
 app.use('/', userRoutes)
 app.use('/', enterpriseRoutes)
+app.use('/', levelRoutes)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
