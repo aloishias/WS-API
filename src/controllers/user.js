@@ -130,6 +130,87 @@ module.exports = {
             }
         }).then(() => res.sendStatus(204))
         .catch(err => res.status(500).send(err));
+    },
+
+    getByLoginPassword(req, res) {
+        const q = req.query
+        const id = req.params.id
+        const login = req.body.login
+        const password = req.body.password
+
+        if (!validateUUID(id))
+            return res.sendStatus(400)
+
+        // Default limit to 50
+        const offset = parseInt(q.offset) || 0
+        const limit = parseInt(q.limit) || 50
+
+        User.findAll({
+                where: {
+                    id: id,
+                    login: login,
+                    password: password
+                },
+                offset,
+                limit
+            })
+            .then(cas => {
+                if (!cas) res.sendStatus(404)
+                else res.status(200).send(cas)
+            })
+            .catch(err => res.status(500).send(err))
+    },
+
+    getByEnterpriseId(req, res) {
+        const q = req.query
+        const id = req.params.id
+        const enterprise_id = req.body.enterprise_id
+
+        if (!validateUUID(id))
+            return res.sendStatus(400)
+
+        // Default limit to 50
+        const offset = parseInt(q.offset) || 0
+        const limit = parseInt(q.limit) || 50
+
+        User.findAll({
+                where: {
+                    enterprise_id: enterprise_id
+                },
+                offset,
+                limit
+            })
+            .then(cas => {
+                if (!cas) res.sendStatus(404)
+                else res.status(200).send(cas)
+            })
+            .catch(err => res.status(500).send(err))
+    },
+
+    getByParentId(req, res) {
+        const q = req.query
+        const id = req.params.id
+        const parent_id = req.body.parent_id
+
+        if (!validateUUID(id))
+            return res.sendStatus(400)
+
+        // Default limit to 50
+        const offset = parseInt(q.offset) || 0
+        const limit = parseInt(q.limit) || 50
+
+        User.findAll({
+                where: {
+                    parent_id: parent_id
+                },
+                offset,
+                limit
+            })
+            .then(cas => {
+                if (!cas) res.sendStatus(404)
+                else res.status(200).send(cas)
+            })
+            .catch(err => res.status(500).send(err))
     }
 
 }
