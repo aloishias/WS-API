@@ -10,7 +10,7 @@ const enterpriseRoutes = require('./src/routes/Enterprise.js')
 const levelRoutes = require('./src/routes/Level.js')
 const requestRoutes = require('./src/routes/Request.js')
 const schoolSubjectRoutes = require('./src/routes/SchoolSubject.js')
-
+const teachingRoutes = require('./src/routes/Teaching.js')
 
 
 app.use(cors())
@@ -28,6 +28,7 @@ app.use('/', enterpriseRoutes)
 app.use('/', levelRoutes)
 app.use('/', requestRoutes)
 app.use('/', schoolSubjectRoutes)
+app.use('/', teachingRoutes)
 
 
 app.listen(port, () => {
