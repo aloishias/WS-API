@@ -9,6 +9,7 @@ const userRoutes = require('./src/routes/User.js')
 const enterpriseRoutes = require('./src/routes/Enterprise.js')
 const levelRoutes = require('./src/routes/Level.js')
 const requestRoutes = require('./src/routes/Request.js')
+const schoolSubjectRoutes = require('./src/routes/SchoolSubject.js')
 
 
 
@@ -26,6 +27,7 @@ app.use('/', userRoutes)
 app.use('/', enterpriseRoutes)
 app.use('/', levelRoutes)
 app.use('/', requestRoutes)
+app.use('/', schoolSubjectRoutes)
 
 
 app.listen(port, () => {
