@@ -5,7 +5,8 @@ const port = process.env.PORT || 3100
 const cors = require('cors')
 
 
-const userroutes = require('./src/routes/User.js')
+const userRoutes = require('./src/routes/User.js')
+const enterpriseRoutes = require('./src/routes/Enterprise.js')
 
 
 app.use(cors())
@@ -18,8 +19,8 @@ app.use(
 )
 
 
-app.use('/', userroutes)
-
+app.use('/', userRoutes)
+app.use('/', enterpriseRoutes)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
