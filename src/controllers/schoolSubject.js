@@ -59,12 +59,12 @@ module.exports = {
 
     updateSchoolSubject(req, res) {
         const id = req.params.id
-        const label = req.body.label
+        const {label} = req.body
 
 
 
         SchoolSubject.update({
-            label: label
+            label
         }, {
             where: {
                 id: id

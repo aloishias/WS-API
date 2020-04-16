@@ -71,23 +71,24 @@ module.exports = {
 
     updateRequest(req, res) {
         const id = req.params.id
-        const requester_id = req.body.requester_id
-        const requested_id = req.body.requested_id
-        const pupil_id = req.body.pupil_id
-        const school_subject_id = req.body.school_subject_id
-        const state = req.body.state
-        const startdate = req.body.startdate
-        const enddate = req.body.enddate
-
+        const {
+            requester_id,
+            requested_id,
+            pupil_id,
+            school_subject_id,
+            state,
+            startdate,
+            enddate
+        } = req.body
 
         Request.update({
-            requester_id: requester_id,
-            requested_id: requested_id,
-            pupil_id: pupil_id,
-            school_subject_id: school_subject_id,
-            state: state,
-            startdate: startdate,
-            enddate: enddate
+            requester_id,
+            requested_id,
+            pupil_id,
+            school_subject_id,
+            state,
+            startdate,
+            enddate
         }, {
             where: {
                 id: id

@@ -85,34 +85,36 @@ module.exports = {
 
     updateUser(req, res) {
         const id = req.params.id
-        const lastname = req.body.lastname
-        const firstname = req.body.firstname
-        const email = req.body.email
-        const phoneNumber = req.body.phoneNumber
-        const login = req.body.login
-        const password = req.body.password
-        const parent_id = req.body.parent_id
-        const level_pupil = req.body.level_pupil
-        const enterprise_id = req.body.enterprise_id
-        const level_student = req.body.level_student
-        const schoolName = req.body.schoolName
-        const review = req.body.review
-        const category = req.body.review
+        const {
+            lastname,
+            firstname,
+            email,
+            phoneNumber,
+            login,
+            password,
+            parent_id,
+            level_pupil,
+            enterprise_id,
+            level_student,
+            schoolName,
+            review,
+            category
+        } = req.body
 
         User.update({
-            lastname: lastname,
-            firstname: firstname,
-            email: email,
-            phoneNumber: phoneNumber,
-            login: login,
-            password: password,
-            parent_id: parent_id,
-            level_pupil: level_pupil,
-            enterprise_id: enterprise_id,
-            level_student: level_student,
-            schoolName: schoolName,
-            review: review,
-            category: category
+            lastname,
+            firstname,
+            email,
+            phoneNumber,
+            login,
+            password,
+            parent_id,
+            level_pupil,
+            enterprise_id,
+            level_student,
+            schoolName,
+            review,
+            category
         }, {
             where: {
                 id: id

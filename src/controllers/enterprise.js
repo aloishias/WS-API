@@ -61,12 +61,14 @@ module.exports = {
 
     updateEnterprise(req, res) {
         const id = req.params.id
-        const name = req.body.name
-        const code = req.body.code
+        const {
+            name,
+            code
+        } = req.body
 
         Enterprise.update({
-            name: name,
-            code: code
+            name,
+            code
         }, {
             where: {
                 id: id
