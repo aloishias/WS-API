@@ -87,7 +87,7 @@ module.exports = {
         if (!validateUUID(id))
             return res.sendStatus(400)
 
-            Teaching.destroy({
+        Teaching.destroy({
                 where: {
                     id: id
                 }

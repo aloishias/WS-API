@@ -5,7 +5,7 @@ module.exports = {
     list(req, res) {
 
         const q = req.query
-        
+
         // Default limit to 50
         const offset = parseInt(q.offset) || 0
         const limit = parseInt(q.limit) || 50
@@ -124,12 +124,12 @@ module.exports = {
         if (!validateUUID(id))
             return res.sendStatus(400)
 
-            User.destroy({
-            where: {
-                id: id
-            }
-        }).then(() => res.sendStatus(204))
-        .catch(err => res.status(500).send(err));
+        User.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => res.sendStatus(204))
+            .catch(err => res.status(500).send(err));
     },
 
     getByLoginPassword(req, res) {

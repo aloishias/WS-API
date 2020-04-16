@@ -7,6 +7,6 @@ const sequelize = new Sequelize(process.env.NAME_DATABASE, process.env.USERNAME_
   dialect: 'postgres'
 })
 
-sequelize.sync({force: true})
+sequelize.sync()
 
 module.exports = sequelize
