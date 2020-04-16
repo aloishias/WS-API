@@ -23,6 +23,4 @@ const Teaching = db.define('Teaching', {
     }
 })
 
-//Teaching.sync()
-
 module.exports = Teaching

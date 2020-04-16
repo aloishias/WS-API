@@ -15,6 +15,4 @@ const SchoolSubject = db.define('SchoolSubject', {
     }
 })
 
-//SchoolSubject.sync()
-
 module.exports = SchoolSubject

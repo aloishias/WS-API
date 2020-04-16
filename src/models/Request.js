@@ -39,6 +39,4 @@ const Request = db.define('Request', {
     }
 })
 
-//Request.sync()
-
 module.exports = Request

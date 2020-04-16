@@ -19,6 +19,6 @@ const Enterprise = db.define('Enterprise', {
     }
 })
 
-//Enterprise.sync()
+Enterprise.sync()
 
 module.exports = Enterprise
