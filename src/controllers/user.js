@@ -59,6 +59,7 @@ module.exports = {
         const level_student = req.body.level_student
         const schoolName = req.body.schoolName
         const review = req.body.review
+        const category = req.body.review
 
         // Create a new user
         User.create({
@@ -73,7 +74,9 @@ module.exports = {
             enterprise_id: enterprise_id,
             level_student: level_student,
             schoolName: schoolName,
-            review: review
+            review: review,
+            category: category
+
         }).then(cas => {
             if (!cas) res.sendStatus(404)
             else res.status(201).send(cas)
@@ -94,6 +97,7 @@ module.exports = {
         const level_student = req.body.level_student
         const schoolName = req.body.schoolName
         const review = req.body.review
+        const category = req.body.review
 
         User.update({
             lastname: lastname,
@@ -107,7 +111,8 @@ module.exports = {
             enterprise_id: enterprise_id,
             level_student: level_student,
             schoolName: schoolName,
-            review: review
+            review: review,
+            category: category
         }, {
             where: {
                 id: id
@@ -134,12 +139,8 @@ module.exports = {
 
     getByLoginPassword(req, res) {
         const q = req.query
-        const id = req.params.id
         const login = req.body.login
         const password = req.body.password
-
-        if (!validateUUID(id))
-            return res.sendStatus(400)
 
         // Default limit to 50
         const offset = parseInt(q.offset) || 0
@@ -147,7 +148,6 @@ module.exports = {
 
         User.findAll({
                 where: {
-                    id: id,
                     login: login,
                     password: password
                 },
@@ -163,11 +163,7 @@ module.exports = {
 
     getByEnterpriseId(req, res) {
         const q = req.query
-        const id = req.params.id
         const enterprise_id = req.body.enterprise_id
-
-        if (!validateUUID(id))
-            return res.sendStatus(400)
 
         // Default limit to 50
         const offset = parseInt(q.offset) || 0
@@ -188,23 +184,27 @@ module.exports = {
     },
 
     getByParentId(req, res) {
-        const q = req.query
-        const id = req.params.id
         const parent_id = req.body.parent_id
 
-        if (!validateUUID(id))
-            return res.sendStatus(400)
-
-        // Default limit to 50
-        const offset = parseInt(q.offset) || 0
-        const limit = parseInt(q.limit) || 50
-
-        User.findAll({
+        User.findOne({
                 where: {
                     parent_id: parent_id
-                },
-                offset,
-                limit
+                }
+            })
+            .then(cas => {
+                if (!cas) res.sendStatus(404)
+                else res.status(200).send(cas)
+            })
+            .catch(err => res.status(500).send(err))
+    },
+
+    getByCategory(req, res) {
+        const category = req.body.category
+
+        User.findOne({
+                where: {
+                    category: category
+                }
             })
             .then(cas => {
                 if (!cas) res.sendStatus(404)

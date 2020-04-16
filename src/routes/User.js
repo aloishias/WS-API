@@ -11,5 +11,7 @@ router.delete('/user/:id', userController.destroyUser)
 router.get('/userByLoginPassword', userController.getByLoginPassword)
 router.get('/userByEnterprise', userController.getByEnterpriseId)
 router.get('/userByParent', userController.getByParentId)
+router.get('/userByCategorie', userController.getByCategory)
+
 
 module.exports = router
