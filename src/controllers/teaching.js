@@ -63,15 +63,9 @@ module.exports = {
 
     updateTeaching(req, res) {
         const id = req.params.id
-        const student_id = req.body.student_id
-        const SchoolSubject_id = req.body.SchoolSubject_id
-        const Level_id = req.body.Level_id
+        const {student_id, SchoolSubject_id, Level_id}  = req.body
 
-        Teaching.update({
-            student_id: student_id,
-            SchoolSubject_id: SchoolSubject_id,
-            Level_id: Level_id
-        }, {
+        Teaching.update({student_id, SchoolSubject_id, Level_id}, {
             where: {
                 id: id
             }

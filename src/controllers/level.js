@@ -59,11 +59,13 @@ module.exports = {
 
     updateLevel(req, res) {
         const id = req.params.id
-        const label = req.body.label
+        const {
+            label
+        } = req.body
 
 
         Level.update({
-            label: label
+            label
         }, {
             where: {
                 id: id
