@@ -56,6 +56,10 @@ const User = db.define('User', {
     review: {
         type: Sequelize.INTEGER,
         allowNull: true
+    },
+    category: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 })
 
