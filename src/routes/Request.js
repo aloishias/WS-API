@@ -8,8 +8,8 @@ router.get('/request/:id', requestController.getById)
 router.post('/request', requestController.createRequest)
 router.put('/request/:id', requestController.updateRequest)
 router.delete('/request/:id', requestController.destroyRequest)
-router.get('/requestByRequester', requestController.getByRequester)
-router.get('/requestByRequested', requestController.getByRequested)
-router.get('/requestByPupil', requestController.getByPupil)
+router.get('/requestByRequester/:requester_id', requestController.getByRequester)
+router.get('/requestByRequested/:requested_id', requestController.getByRequested)
+router.get('/requestByPupil/:pupil_id', requestController.getByPupil)
 
 module.exports = router
