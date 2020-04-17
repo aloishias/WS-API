@@ -141,8 +141,8 @@ module.exports = {
 
     getByLoginPassword(req, res) {
         const q = req.query
-        const login = req.body.login
-        const password = req.body.password
+        const login = req.params.login
+        const password = req.params.password
 
         // Default limit to 50
         const offset = parseInt(q.offset) || 0
@@ -165,7 +165,7 @@ module.exports = {
 
     getByEnterpriseId(req, res) {
         const q = req.query
-        const enterprise_id = req.body.enterprise_id
+        const enterprise_id = req.params.enterprise_id
 
         // Default limit to 50
         const offset = parseInt(q.offset) || 0
@@ -186,7 +186,7 @@ module.exports = {
     },
 
     getByParentId(req, res) {
-        const parent_id = req.body.parent_id
+        const parent_id = req.params.parent_id
 
         User.findOne({
                 where: {
@@ -201,7 +201,7 @@ module.exports = {
     },
 
     getByCategory(req, res) {
-        const category = req.body.category
+        const category = req.params.category
 
         User.findOne({
                 where: {
