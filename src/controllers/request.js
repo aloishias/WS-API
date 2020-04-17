@@ -114,7 +114,7 @@ module.exports = {
     },
 
     getByRequester(req, res) {
-        const requester_id = req.body.requester_id
+        const requester_id = req.params.requester_id
 
         Request.findOne({
                 where: {
@@ -129,7 +129,7 @@ module.exports = {
     },
 
     getByRequested(req, res) {
-        const requested_id = req.body.requested_id
+        const requested_id = req.params.requested_id
 
         Request.findOne({
                 where: {
@@ -144,7 +144,7 @@ module.exports = {
     },
 
     getByPupil(req, res) {
-        const pupil_id = req.body.pupil_id
+        const pupil_id = req.params.pupil_id
 
         Request.findOne({
                 where: {
