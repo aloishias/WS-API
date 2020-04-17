@@ -59,7 +59,7 @@ module.exports = {
         const level_student = req.body.level_student
         const schoolName = req.body.schoolName
         const review = req.body.review
-        const category = req.body.review
+        const category = req.body.category
 
         // Create a new user
         User.create({
