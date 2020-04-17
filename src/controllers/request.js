@@ -111,6 +111,51 @@ module.exports = {
                 }
             }).then(() => res.sendStatus(204))
             .catch(err => res.status(500).send(err));
+    },
+
+    getByRequester(req, res) {
+        const requester_id = req.body.requester_id
+
+        Request.findOne({
+                where: {
+                    requester_id: requester_id
+                }
+            })
+            .then(cas => {
+                if (!cas) res.sendStatus(404)
+                else res.status(200).send(cas)
+            })
+            .catch(err => res.status(500).send(err))
+    },
+
+    getByRequested(req, res) {
+        const requested_id = req.body.requested_id
+
+        Request.findOne({
+                where: {
+                    requested_id: requested_id
+                }
+            })
+            .then(cas => {
+                if (!cas) res.sendStatus(404)
+                else res.status(200).send(cas)
+            })
+            .catch(err => res.status(500).send(err))
+    },
+
+    getByPupil(req, res) {
+        const pupil_id = req.body.pupil_id
+
+        Request.findOne({
+                where: {
+                    pupil_id: pupil_id
+                }
+            })
+            .then(cas => {
+                if (!cas) res.sendStatus(404)
+                else res.status(200).send(cas)
+            })
+            .catch(err => res.status(500).send(err))
     }
 
 }
